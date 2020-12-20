@@ -1,12 +1,11 @@
-import { CountDown } from "./components/CountDown";
-import { CountDownMonths } from "./components/CountDownMonths";
+import { ViewSwitch } from "./components/ViewSwitch";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <CountDown />
-      <CountDownMonths />
-    </>
+    <div className="app">
+      <ViewSwitch />
+    </div>
   );
 }
 

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 
-const targetTime = moment("2022-03-01");
-const initialTime = moment();
+const targetTime = moment("2035-01-01");
 
 export const CountDownMonths = () => {
-  const [currentTime, setCurrentTime] = useState(initialTime);
+  const [currentTime, setCurrentTime] = useState(moment());
   const timeBetween = moment.duration(targetTime.diff(currentTime));
 
   useEffect(() => {
@@ -14,16 +13,19 @@ export const CountDownMonths = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <div>
-      <span>{timeBetween.years()} years </span>
-      <span>{timeBetween.months()} months </span>
-      <span>{timeBetween.days()} days </span>
-      <span>{timeBetween.hours()}h </span>
-      <span>{timeBetween.minutes()}min </span>
-      <span>{timeBetween.seconds()}s left. </span>
-    </div>
+    <>
+      <p>Deadline comes in</p>
+      <p className="counter">
+        <span>{timeBetween.years()}yr </span>
+        <span>{timeBetween.months()}m </span>
+        <span>{timeBetween.days()}d </span>
+        <span>{timeBetween.hours()}h </span>
+        <span>{timeBetween.minutes()}min </span>
+        <span>{timeBetween.seconds()}s </span>
+      </p>
+    </>
   );
 };

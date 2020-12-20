@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-const targetTime = new Date("01-03-2022").getTime();
-const initialTime = Date.now();
+const targetTime = new Date("2035-01-01").getTime();
 
 export const CountDown = () => {
-  const [currentTime, setCurrentTime] = useState(initialTime);
+  const [currentTime, setCurrentTime] = useState(Date.now());
 
   const timeBetween = targetTime - currentTime;
   const seconds = Math.floor((timeBetween / 1000) % 60);
@@ -18,14 +17,17 @@ export const CountDown = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
-      <span>{days} days </span>
-      <span>{hours}h </span>
-      <span>{minutes}min </span>
-      <span>{seconds}s left.</span>
+      <p>Deadline comes in</p>
+      <p className="counter">
+        <span>{days}d </span>
+        <span>{hours}h </span>
+        <span>{minutes}min </span>
+        <span>{seconds}s</span>
+      </p>
     </>
   );
 };
