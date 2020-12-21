@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { CountDown } from "./CountDown";
-import { CountDownMonths } from "./CountDownMonths";
+import { Countdown } from "./Countdown";
+import { CountdownMonths } from "./CountdownMonths";
 
 export const ViewSwitch = () => {
   const [showMonths, setShowMonths] = useState(true);
   return (
     <div>
-      {showMonths && <CountDownMonths />}
-      {!showMonths && <CountDown />}
+      {showMonths && <CountdownMonths />}
+      {!showMonths && <Countdown />}
       <button
         onClick={() => {
           setShowMonths(!showMonths);

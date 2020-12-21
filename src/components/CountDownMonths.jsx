@@ -3,7 +3,7 @@ import moment from "moment";
 
 const targetTime = moment("2035-01-01");
 
-export const CountDownMonths = () => {
+export const CountdownMonths = () => {
   const [currentTime, setCurrentTime] = useState(moment());
   const timeBetween = moment.duration(targetTime.diff(currentTime));
 
